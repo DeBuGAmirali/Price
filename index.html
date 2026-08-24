@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Iran Market | USD, EUR, USDT, Gold & Coins</title>
+
+<meta name="description"
+content="Iran Market - Live USD, EUR, USDT, Gold and Coin prices">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #020604;
+    --bg2: #07120b;
+    --card: #0a1710;
+    --border: rgba(34,197,94,.20);
+    --green: #22c55e;
+    --green2: #16a34a;
+    --lightgreen: #4ade80;
+    --red: #ef4444;
+    --gold: #f5b942;
+    --text: #f5f7f6;
+    --muted: #91a49a;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(34,197,94,.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(22,163,74,.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #010201,
+            #061009,
+            #020403
+        );
+
+    overflow-x: hidden;
+}
+
+.container {
+    width: min(1180px, 100%);
+    margin: auto;
+    padding: 20px;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.logo-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #22c55e,
+        #064e24
+    );
+
+    border: 1px solid rgba(74,222,128,.4);
+
+    box-shadow:
+        0 0 30px rgba(34,197,94,.25);
+
+    font-size: 25px;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    border-radius: 30px;
+
+    background: rgba(5,12,8,.8);
+
+    border: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow: 0 0 12px var(--green);

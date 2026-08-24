@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Iran Market | USD, EUR, USDT, Gold & Coins</title>
+
+  <meta
+    name="description"
+    content="Live Iranian market prices for USD, EUR, USDT, Gold and Coins"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #080d18;
+      --card: #111827;
+      --card2: #182235;
+      --border: #273449;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --blue: #3b82f6;
+      --green: #22c55e;
+      --red: #ef4444;
+      --gold: #f59e0b;
+    }
+
+    body {
+      font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at top,
+          #172554 0,
+          #080d18 50%
+        );
+
+      color: var(--text);
+
+      min-height: 100vh;
+
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 14px;
+
+      background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+      );
+
+      font-size: 24px;
+    }
+
+    h1 {
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      border: 1px solid var(--border);
+
+      background: rgba(15,23,42,.7);
+
+      padding: 9px 13px;
+
+      border-radius: 30px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      box-shadow: 0 0 10px var(--green);
+    }
+
+    /* GRID */
+
+    .grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+    .card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(25,36,55,.95),
+          rgba(13,20,34,.95)
+        );
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      padding: 20px;
+
+      box-shadow:
+        0 15px 45px rgba(0,0,0,.25);
+
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+
+      border-color:
+        rgba(59,130,246,.5);
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 20px;
+    }
+
+    .asset {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #1e293b;
+
+      border-radius: 12px;
+
+      font-size: 21px;
+    }
+
+    .name {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .code {
+      color: var(--muted);
+      font-size: 10px;
+
+      margin-top: 4px;
+    }
+
+    .change {
+      font-size: 10px;
+
+      padding: 5px 8px;
+
+      border-radius: 9px;
+
+      background: rgba(34,197,94,.12);
+
+      color: var(--green);
+    }
+
+    .change.down {
+      background: rgba(239,68,68,.12);
+      color: var(--red);
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: 800;
+
+      letter-spacing: -1px;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .unit {
+      color: var(--muted);
+
+      font-size: 11px;
+
+      margin-top: 5px;
+    }
+
+    .details {
+      display: flex;
+
+      justify-content: space-between;
+
+      margin-top: 18px;
+
+      padding-top: 14px;
+
+      border-top: 1px solid var(--border);
+
+      font-size: 11px;
+
+      color: var(--muted);
+    }
+
+    .details strong {
+      display: block;
+
+      color: #e2e8f0;
+
+      margin-top: 5px;
+    }
+
+    /* CHART */
+
+    .chart-card {
+      margin-top: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(25,36,55,.95),
+          rgba(13,20,34,.95)
+        );
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      padding: 22px;
+    }
+
+    .chart-header {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 18px;
+    }
+
+    .chart-title {
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .chart-info {
+      color: var(--muted);
+      font-size: 11px;
+
+      margin-top: 5px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 300px !important;
+    }
+
+    /* COINS */
+
+    .coins {
+      margin-top: 18px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap: 12px;
+    }
+
+    .coin {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      padding: 16px;
+    }
+
+    .coin-name {
+      color: var(--muted);
+
+      font-size: 11px;
+
+      margin-bottom: 9px;
+    }
+
+    .coin-price {
+      font-size: 17px;
+
+      font-weight: bold;
+    }
+
+    .coin-unit {
+      color: #64748b;
+
+      font-size: 9px;
+
+      margin-top: 4px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+
+      color: #64748b;
+
+      font-size: 10px;
+
+      padding: 25px 0 10px;
+    }
+
+    .refresh {
+      margin-top: 15px;
+
+      border: none;
+
+      background: var(--blue);
+
+      color: white;
+
+      padding: 10px 17px;
+
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+    }
+
+    .refresh:hover {
+      background: #2563eb;
+    }
+
+    .error {
+      color: var(--red);
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 900px) {
+
+      .grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .coins {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+    }
+
+    @media(max-width: 600px) {
+
+      body {
+        padding: 12px;
+      }
+
+      header {
+        align-items: flex-start;
+      }
+
+      .status {
+        display: none;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .coins {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .price {
+        font-size: 28px;
+      }
+
+      .
